@@ -39,4 +39,59 @@ product-api/
 
 ![alt](./imgs/UML.png)
 
+*Testes*
+
+* Criar um produto `*(POST /products)*`
+
+```bash
+curl -X POST http://localhost:8080/products \
+  -H "Content-Type: application/json" \
+  -d '{
+    "name": "Mouse Gamer",
+    "description": "Mouse com 8000 DPI",
+    "price": 149.99
+}'
+```
+
+* Buscar todos os produtos `*(GET /products)*` 
+
+```bash
+curl http://localhost:8080/products
+```
+
+* Buscar produto por ID `*(GET /products/{id})*`
+
+```bash
+curl http://localhost:8080/products/1
+```
+
+* Buscar produtos por nome `*(GET /products/nome/{name})*`
+
+```bash
+curl http://localhost:8080/products/name/Mouse
+```
+
+* Atualizar um produto `*(PUT /products/{id})*`
+
+```bash
+curl -X PUT http://localhost:8080/products/1 \
+  -H "Content-Type: application/json" \
+  -d '{
+    "name": "Mouse Gamer RGB",
+    "description": "Mouse com RGB e 12000 DPI",
+    "price": 199.99
+}'
+```
+
+* Deletar um produto `*(DELETE /products/{id})*`
+
+```bash
+curl -X DELETE http://localhost:8080/products/1
+```
+
+* Contar produtos `*(GET /products/count)*`
+
+```bash
+curl http://localhost:8080/products/count
+```
 
