@@ -31,7 +31,7 @@ func (pc *ProductController) GetByID(c *gin.Context) {
 }
 
 func (pc *ProductController) GetByName(c *gin.Context) {
-	name := c.Query("name")
+	name := c.Param("name")
 	products, err := pc.Service.GetByName(name)
 	if err != nil {
 		c.JSON(http.StatusInternalServerError, gin.H{"error": "Erro ao buscar produtos"})

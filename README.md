@@ -83,15 +83,15 @@ curl -X PUT http://localhost:8080/products/1 \
 }'
 ```
 
-* Deletar um produto `*(DELETE /products/{id})*`
-
-```bash
-curl -X DELETE http://localhost:8080/products/1
-```
-
 * Contar produtos `*(GET /products/count)*`
 
 ```bash
 curl http://localhost:8080/products/count
+```
+
+* Deletar um produto `*(DELETE /products/{id})*`
+
+```bash
+curl -X DELETE http://localhost:8080/products/1
 ```
 

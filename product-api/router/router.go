@@ -18,7 +18,7 @@ func InitializeRoutes(r *gin.Engine, db *gorm.DB) {
 
 	r.GET("/products", controller.GetAll)
 	r.GET("/products/:id", controller.GetByID)
-	r.GET("/products/search", controller.GetByName)
+	r.GET("/products/name/:name", controller.GetByName)
 	r.GET("/products/count", controller.Count)
 	r.POST("/products", controller.Create)
 	r.PUT("/products/:id", controller.Update)

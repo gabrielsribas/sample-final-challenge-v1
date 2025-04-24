@@ -3,6 +3,7 @@ package repository
 import (
 	"product-api/model"
 	"gorm.io/gorm"
+	"log"
 )
 
 type ProductRepository struct {
@@ -23,7 +24,11 @@ func (r *ProductRepository) FindByID(id string) (model.Product, error) {
 
 func (r *ProductRepository) FindByName(name string) ([]model.Product, error) {
 	var products []model.Product
-	err := r.DB.Where("name LIKE ?", "%"+name+"%").Find(&products).Error
+	query := "%" + name + "%"
+	err := r.DB.Where("name LIKE ?", query).Find(&products).Error
+	if err != nil {
+		log.Println("Erro ao buscar por nome:", err)
+	}
 	return products, err
 }
 
